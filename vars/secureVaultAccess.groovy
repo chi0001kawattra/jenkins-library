@@ -9,8 +9,8 @@ def call(Map args = [:]) {
     def generatedSecretIdAccessor = ''
     
     withCredentials([
-        string(credentialsId: args.bootstrapRoleId ?: 'vault-bootstrap-role-id', variable: 'ROLE_ID'),
-        string(credentialsId: args.bootstrapSecretId ?: 'vault-bootstrap-secret-id', variable: 'SECRET_ID')
+        string(credentialsId: args.bootstrapRoleId ?: 'vault-admin-role-id', variable: 'ROLE_ID'),
+        string(credentialsId: args.bootstrapSecretId ?: 'vault-admin-secret-id', variable: 'SECRET_ID')
     ]) {
         // Bootstrap login to Vault
         def bootstrapTokenJson = sh(
